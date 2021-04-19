@@ -11,14 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
   const methodOverride = require('method-override')
   
 
-  var http = require('http');
-  var server = http.Server(app);
-  var PORT = process.env.PORT || 3000;
-  
-  server.listen(PORT, function() {
-    console.log('Chat server running');
-  });
-  
+
 
 
   const initializePassport = require('./passport-config')
@@ -97,5 +90,9 @@ if (process.env.NODE_ENV !== 'production') {
   
 
 
+
+  const PORT = process.env.PORT || 5000;
+
+  app.listen(PORT, console.log(`Server started on ${PORT}`));
 
   app.use("/stylesheets",express.static(__dirname + "/stylesheets"));
